@@ -1,0 +1,29 @@
+/* selector digunakan untuk menarget elemen htlml yg akan diedit dicss */
+
+
+body {
+background-color: black;
+}
+
+/* jika ingin lebih satu berikan koma */
+h1,h2,h3{
+    color: red;
+}
+
+/* jika ingin lebih spesifik berikan spasi */
+
+ul li h1 {
+    color: white;
+}
+
+/* memanggil id pakai #, usahakan id itu hanya 1 elemen utk 1 id */
+
+#p1 {
+    color : blue;
+}
+
+/* panggil class pakai . */
+
+.button {
+    background-color: white;
+}

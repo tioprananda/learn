@@ -1,0 +1,46 @@
+<!-- COMPUTED SEPERTI METHOD YG BERISI FUNCTION, PEERBEDAAANYA JIKA DIBINDING CUKUP DIPANGGIL NAMA PROPERTINYA SAJA TIDAK PERLU MENGGUNAKAN PARAMETER DAN TANDA KURUNG KARNA COMPUTED ADALAH FUNCTION YG TIDAK MEMILIKI PARAMETER -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue js</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- componen vue di html:  -->
+	<div id="app">
+		
+		<!-- PANGGIL COMPUTED DGN NAMA PROPERTY TANPA () -->
+		<h1>computed vue <br> hitung : {{hitungQty}}</h1>
+
+		<H2>{{hitungBilangan}}</H2>
+
+	</div>
+
+<!-- cdn vue2 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+
+<!-- script untuk mengedit/membuat vue -->
+<script>
+
+const vm = new Vue({
+	el : `#app`,
+	data : {
+		qty : 10,
+	},
+
+	// COMPUTED BERFUNGSI UNTUK MENGHITUNG DATA, YG DIDALAMNYA BERISI FUNCTION YG PARAMETERNYA HARUS KOSONG
+	computed : {
+		hitungQty : function () {
+			return this.qty ;
+		},
+
+		hitungBilangan : function () { 
+			return this.qty % 2 === 0 ? `genap` : `ganjil`;
+		},
+		
+	},
+})
+
+</script>
+</html>

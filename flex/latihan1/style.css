@@ -1,0 +1,135 @@
+html body {
+    padding: 0;
+    margin: 0;
+    background-color: #ccc;
+}
+
+/* latihan 1 memindahan order dann membuat ukuran flex otomatis */
+.container {
+display: flex;
+margin: 10px auto;
+background-color: azure ;
+padding: 10px;
+max-width: 800px;
+box-sizing: border-box;
+}
+
+
+.container-1{
+    order: 3;
+    flex: 1;
+    padding: 10px;
+
+}
+
+.container-1 a {
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.container-2 {
+    order: 2;
+    flex: 4;
+    padding: 10px;
+}
+
+.container-3 {
+    order: 1;
+    flex: 2;
+    padding: 10px;
+}
+
+.containerLayanan {
+    margin: auto;
+    max-width: 800px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+    flex-wrap: wrap;
+
+}
+
+.layanan1 {
+    background-color: coral;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.layanan2 {
+    padding: 10px;
+    background-color: aqua;
+    margin-bottom: 20px;
+}
+
+.layanan3 {
+    padding: 10px;
+    background-color: violet;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 600px) {
+  .containerLayanan {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .layanan1, .layanan2, .layanan3 {
+    width: 30%;
+    padding: 10px;
+  }
+}
+
+.containerGambar {
+    max-width: 800px;
+    padding: 10px;
+    margin: 10px auto;
+    box-sizing: border-box;
+}
+
+.gambar2 {
+    order: 2;
+    padding: 10px;
+}
+
+.gambar2 img {
+    box-shadow: 5px 5px 5px rgba(0,0,0,.7);
+    filter:grayscale(1);
+}
+
+.gambar3 {
+    order: 2;
+    padding: 10px;
+}
+
+.gambar3 img {
+    box-shadow: 5px 5px 5px rgba(0,0,0,.7);
+     filter:grayscale(1);
+}
+
+.gambar1 {
+    padding: 10px;
+}
+
+.gambar1 img {
+    box-shadow: 5px 5px 5px rgba(0,0,0,.7);
+    filter:grayscale(1);
+}
+
+
+.gambar4 {
+    padding: 10px;
+}
+
+.gambar4 img {
+    box-shadow: 5px 5px 5px rgba(0,0,0,.7);
+    filter:grayscale(1);
+}
+
+@media(min-width:600px) {
+    .containerGambar {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+}

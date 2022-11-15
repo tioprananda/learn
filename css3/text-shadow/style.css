@@ -1,0 +1,8 @@
+/* text shadow membuat bayangan pada teks */
+/* text-shadows : x-offset y-offse blur color */
+
+.radius2 {
+   font-size: 30px;
+   text-shadow: 5px 5px 5px red;
+}
+

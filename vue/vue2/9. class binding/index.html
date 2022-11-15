@@ -1,0 +1,56 @@
+<!-- class binding adalah manipulasi data pada class di html seperti menambah class active atau menghapus class -->
+<!-- nama class : kondisi jika true tampilkan nama class -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue js</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- componen vue di html:  -->
+	<div id="app">
+
+		<!-- cara baca click: ketika tombol button diklik, jalankan function button active yg bersi string home -->
+		<!-- cara baca v-bind: kelas aktif akan ditampilkan apabila true, sebelum itu jalankan function active yg parameternya berisi string home -->
+		<button class='home':class="{active:active(`home`)}" @click = "buttonActive(`home`)">home</button>
+		<button class='about':class="{active:active(`about`)}" @click = "buttonActive(`about`)">about</button>
+		<button class='product':class="{active:active(`product`)}" @click = "buttonActive(`product`)">product</button>
+
+	</div>
+
+<!-- cdn vue2 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+
+<!-- script untuk mengedit/membuat vue -->
+<script>
+
+const vm = new Vue({
+	el : `#app`,
+	data : {
+		menu : `home`,
+	},
+	methods : {
+		active : function(data) {
+			// jika isi menu sama dengan data baru dari function active
+			if (this.menu === data) {
+				console.log(data)
+				// kembalikan isi function berupa true
+				return true;
+			}
+		},
+
+		buttonActive : function(dataButton){
+			// jika data menu sama dengan data menu
+			if (this.menu === this.menu) {
+				// ubah data menu menjadi data baru dari parameter function button active
+				return this.menu = dataButton;
+			}
+		}
+	}, 
+
+})
+
+</script>
+</html>

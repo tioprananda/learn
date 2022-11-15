@@ -1,0 +1,21 @@
+/* vendor prefix digunakan agar mendaftarkan property2 css3 yang tidak support dibrowser maupun android */
+
+/* 
+
+-webkit- : chrome
+-moz- : mozila firefox
+-ms- : internet explorer
+-o- : opera mini
+
+*/
+
+.radius {
+   background-image: url(img/tio.jpg);
+   width: 200px;
+   height: 200px;
+   background-size: cover;
+   
+   /* tambahkan vendor prefix dan property yg ingin diregister */
+   -webkit-filter: grayscale(100%);
+   filter: grayscale(100%);
+}

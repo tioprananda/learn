@@ -1,0 +1,33 @@
+/* dimensi memiliki width dan heigt px/% dan dimensi akan selalu mengutamakan elemen parent */
+
+.satu  {
+    display: block;
+    background-color: red;
+    width: 50px;
+    height: 50px;
+}
+
+p {
+    /* overflow visible memperlihatkan ukuran asli elemen */
+    overflow: visible;
+    width: 100px;
+    height: 50px;
+}
+
+.p2 {
+    /* overflow auto menambahkan scroll otomatis apabila ukuran elemen sudah penuh dan akan hilang otomatis apabila ukuran elemen mencukpi wadahnya */
+    overflow: auto;
+    width: 50%;
+}
+
+.p3 {
+    /* overflow hidden akan secara otomatis menghilangkan ukuran elemen yang berlebih dari wadahnya */
+    overflow: hidden;
+    width: 80%;
+}
+
+.p4 {
+    /* overflow scrol menambahkan scroll tidak peduli wadah kurang atau cukup */
+    overflow: scroll;
+    width:100%;
+}

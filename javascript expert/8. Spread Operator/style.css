@@ -1,0 +1,19 @@
+h1 {
+	display: flex;
+	font-family: cursive;
+	color : magenta;
+	justify-content: center;
+	align-items: center;
+	
+	
+}
+
+h1 span {
+	display: inline-flex;
+	transition: .2s;
+}
+
+h1 span:hover {
+	transform: scale(2);
+}
+

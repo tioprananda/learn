@@ -1,0 +1,36 @@
+<!-- V-BIND BERFUNGSI SEBAGAI PENGGANTI RENDERING {{}} YG KHUSUS SEBAGAI ATRIBUT DI HTML YG MERENDER DATA DIDALAM ATRIBUT -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue js</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- componen vue di html:  -->
+	<div id="app">
+		<h1>directive v-bind : </h1>
+		<img v-bind:src="gambar" width="200">
+		<!-- penulisan singkan bisa menggunakan inisial : sebelum atribut -->
+		<img :src="gambar2" width="200">
+	</div>
+
+<!-- cdn vue2 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+
+<!-- script untuk mengedit/membuat vue -->
+<script>
+
+const vm = new Vue({
+	el : `#app`,
+	data : {
+		gambar : `img/1.jpg`,
+		gambar2 : `img/2.jpg`,
+	},
+
+})
+
+</script>
+</html>

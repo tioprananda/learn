@@ -1,0 +1,31 @@
+/* border radius berfungsi untuk membuat ujung border menjadi tumpul */
+/* border radius memiliki :
+    -border-top-right-radius : (edit kanan atas)
+    -border-bottom-right-radius :(edit kanan bawah)
+    -border-top-left-radius : (edit kiri atas)
+    -border-bottom-left-radius : (edit kiri bawah)
+*/
+/* rumus border radius : (atas kanan, bawah kiri, bawah kanan, atas kiri) px/% */
+
+
+.radius {
+   background-image: url(img/tio.jpg);
+   background-size: cover;
+    width: 300px;
+    height: 300px;
+    line-height: 300px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+
+.radius2     {
+    color: wheat;
+    background-image: url(img/tio.jpg);
+    background-size: cover;
+     width: 300px;
+     height: 300px;
+     line-height: 300px;
+     text-align: center;
+     border-radius: 0 50% 50% 50%;
+ }

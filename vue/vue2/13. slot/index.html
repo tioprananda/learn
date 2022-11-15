@@ -1,0 +1,90 @@
+<!-- SLOT BERFUNGSI MERENDER SYNTAK HTML DI ELEMEN PARENT YG ADA DIDALAM PEMANGGILAN COMPONENT -->
+<!-- UNTUK MEMANGGIL ELEMEN HTML UNTUK MASUK KEDALAM COMPONENT, PEMANGGILAN COMPONENNYA DIPANGGIL KEDALAM ELEMEN STRING TEMPLATE COMPONEN -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue js</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- componen vue di html:  -->
+	<div id="app">
+
+		<looping :items="angka" v-on:hapusemit="hapusangka($event)" v-on:tambahemit="tambahangka($event)">
+			
+			<!-- ini adalah elemen slot yg ditulis diparent elemen dan akan dipanggil di component elemen -->
+			<h1>INI ADALAH ELEMEN SLOT</h1>
+
+		</looping>
+
+
+
+
+	</div>
+
+<!-- cdn vue2 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+
+<!-- script untuk mengedit/membuat vue -->
+<script>
+
+Vue.component (`looping`,{
+	// daftarkan nama properti propsnya
+	props : [`items`],
+	template :
+		// panggil eleme slotnya sesuai dengan nama componentnya dngn <slot></slot>
+		
+	 `
+		<template>
+
+			<ul>
+			
+			<slot></slot>
+
+				<label><input type="text" name="test" v-on:keyup.enter="$emit('tambahemit',$event)"> Enter</label>
+				<li v-for="(a, index) in items"> {{index+1}} - {{a}}
+					<a href=""v-on:click.prevent="$emit('hapusemit',index)">hapus</a>
+				</li>
+			</ul>
+		</template> 
+	`,
+
+	data : function(){
+		return 	{
+
+		}
+	},
+	
+})
+
+const vm = new Vue({
+	el : `#app`,
+	// komponen dari luar wajib didaftakan di elemen vm vue
+	components : {
+		// property pada component : const dari data variabel luar
+	},
+
+	data : {
+		cek : `props berhasil`,
+		angka : [`test1`,`test2`,`test3`,`test4`,`test5`,`test6`],
+	},
+
+	methods : {
+		// hapusangka memiliki argument yaitu index yg berasal dari hasil looping index dari emitnya
+		hapusangka : function(index){
+			// hapus angka dengan index sekian yg diklik, hapus 1 item
+			this.angka.splice(index, 1);
+		},
+		tambahangka : function(event){
+			// buat var kosong untuk menampung hasil value dari tambahemit, untuk mengambil datanya harus menggunakan target.value
+			let isi = event.target.value;
+			this.angka.unshift(isi);
+		}
+	},
+
+})
+
+</script>
+</html>

@@ -1,0 +1,196 @@
+<!-- VALIDATION BERFUNGSI KETIKA FORM YG DISUBMIT KOSONG MAKA LAKUKAN VALIDASI PENGECEKAN BAHWA DATA TIDAK DAPAT DIKIRIM DAN TAMPILKAN PESAN EROR-->
+
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<head>
+	<title>CRUD</title>
+</head>
+<body>
+
+<div id='app'>
+
+	<!-- crudinsert binding data submitemit di vue componeont yg akan dikirim ke vm submit data -->
+	<crudinsert v-on:submitemit = "submitdata"></crudinsert>
+
+	<!-- CRUD looping isi data dari vm outlet ke vue component dgn nama props items, v-on binding data hapusdataemit dari vue component crudy yg emitnya berisi id, lalu kirim data tsb ke methods vm vue hapus data  -->
+	<crud :items='outlet' v-on:hapusdataemit="hapusdata($event)"></crud>
+</div>
+
+
+<!-- cdn vue2 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+
+<!-- cdn uuidv4 -->
+<script type="module">
+  import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
+
+  	// vue component dengan nama crud
+	Vue.component (`crud`,{
+		// props items adalah data outlet pada vm vue
+		props : [`items`],
+
+
+
+		template : 
+
+			// jika isi outlet > 0
+			// lakukan looping 1per1 data dari outlet
+			// tampilkan data outlet ke html sesuai index + 1
+			// tampilkan data gambar outlet dengan binding img src string /img + nama gambarnya
+				// jika a diklik kirim emit hapusdata yg berisi id data outlet
+			// jika else tampilkan data tidak ditemukan
+		
+		`
+			<ul v-if="items.length>0">
+					<li v-for="(item, index) of items"> {{index+1}} - outlet : {{item.nama}} 
+					<p>jumlah productivity : {{item.productivity}}</p>
+					<p><img :src=" 'img/' + item.gambar" width="200"></p>
+						<a href="#" v-on:click.prevent="$emit('hapusdataemit',item.id)">hapus</a>
+					</li>
+				</ul>
+			<li v-else> data tidak ditemukan </li>
+		`,
+	})
+		// vue component dengan nama crudinsert
+		Vue.component (`crudinsert`,{
+		props : [],
+		template : 
+			// TAMBAH CLASS ERROR UNTUK MENAMPUNG DATA VALIDASI
+		`
+			<form v-on:submit.prevent="submitemit">
+				<label>nama : </label>
+				<input type="text" name="nama" v-model="dataoutletemit.nama">
+				<div class="error" v-if="error.nama">{{error.nama}}</div>
+				<br>
+				<label>productivity :</label>
+				<input type="text" name="productivity" v-model="dataoutletemit.productivity">
+				<div class="error" v-if="error.nama">{{error.productivity}}</div>
+				<br>
+				<label>upload :</label>
+				<img :src="previewimg" width="200" v-if="previewimg">
+				<input type="file" ref="gambar" name="upload" v-on:change="gantiimg">
+				<br>
+				<button type="submit">submit</button>
+			</form>
+		`,
+
+		data : function(){
+		return 	{
+			dataoutletemit : {
+				// id berisi function uuidv4 yaitu id data random 
+					id : uuidv4(),
+					nama : ``,
+					productivity : ``,
+					gambar : ``,
+				},
+
+				// previewimg berisi gambar sementara sebelum diupload
+				previewimg :``,
+				error : {
+					nama : ``,
+					productivity : ``,
+				},
+				}
+		},
+
+		methods : {
+			submitemit : function(){
+				// jika data sudah terisi maka hilangkan pesan error
+				this.error.nama = ""
+				this.error.productivity = ""
+
+				// jika nama kosong tampilkan pesan error
+				if (this.dataoutletemit.nama == "") {
+					this.error.nama = `data belum diisi`
+				}
+
+				// jika productiviry kosong tampilkan pesan error
+				if (this.dataoutletemit.productivity == "") {
+					this.error.productivity = `data belum diisi`
+				}
+
+				// jika nama dan productivity sudah terisi jalankan function tambah data
+				if (this.dataoutletemit.nama && this.dataoutletemit.productivity) {
+
+							// dataisi mengambil data dari form submit ketika mau di emit dan dikirim ke dataoutletemit
+							const dataisi = {
+								id : this.dataoutletemit.id,
+								nama : this.dataoutletemit.nama,
+								productivity : this.dataoutletemit.productivity,
+								gambar : this.dataoutletemit.gambar,
+
+							}
+
+							// kirim emit yg emitnya berisi submitemit yg berisi dataisi
+							this.$emit(`submitemit`,dataisi)
+							// form data akan direset ketika submit emit dikirm
+							this.dataoutletemit.nama = ""
+							this.dataoutletemit.productivity = ""
+							this.dataoutletemit.gambar = ""
+							this.previewimg = ""
+							// $refs berfungsi mngambil value nama dari gambar yg diupload
+							this.$refs.gambar.value = ""
+
+
+							}
+
+							console.log(this.dataoutletemit.id)
+
+	
+			},
+
+			gantiimg : function(e){
+				// img berisi nama gambar
+				const img = e.target.files[0].name;
+				// isi gambar didalam dataoutletemit dengan img
+				this.dataoutletemit.gambar = img;
+				// ubah nama gambar mencari nama random blob
+				this.previewimg = URL.createObjectURL(e.target.files[0])
+			}
+		}
+	})
+
+	const vm = new Vue ({
+		el : `#app`,
+		data : {
+			
+			// data contoh outlet
+			outlet : [
+
+			{
+				id : uuidv4(),
+				nama : `ak1`,
+				productivity : 1000,
+				gambar : `1.jpg`,
+			},
+			
+			{
+				id : uuidv4(),
+				nama : `ak2`,
+				productivity : 1000,
+				gambar : `2.jpg`,
+			},
+ 
+			],
+		
+				
+		},
+		methods : {
+
+			// hapusdata berisi id dari data emit
+			hapusdata : function(id) {
+				// filter oulter, jika target hapus idnya tidak sama antara id data emit dan data vue maka hilangkan itemnya
+			this.outlet = this.outlet.filter( x => x.id !== id )
+			},
+
+			// submitdata berisi data form emit
+			submitdata : function(e){
+				// push data outlet dengan data form emit
+				this.outlet.push(e)
+			}
+		},
+	})
+</script>
+</body>
+</html>

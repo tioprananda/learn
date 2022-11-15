@@ -1,0 +1,114 @@
+/* transision berfungsi memberikan efek transisi pergerakan pada suatu elemen */
+/* transisi : properti(transform, filter, background-color, dst..) waktu gerak (s/ms) fungsi(ease ease-in ease-out ease-in-out linear cubic-bezier) waktu delay(s/ms)  */
+
+.container {
+   border: 5px solid black;
+   width: 1000px;
+   margin: auto;
+}
+
+/* ease */
+.container .ease {
+   color: white;
+   background-color: black;
+   width: 100px;
+   height: 100px;
+   text-align: center;
+   line-height: 100px;
+   transition: all 1s ease 1s;
+  
+}
+.container:hover .ease {
+rotate: 360deg;
+background-color: blue;
+margin-left: 900px;
+
+}
+
+/* ease-in */
+.container .ease-in {
+   color: white;
+   background-color: black;
+   width: 100px;
+   height: 100px;
+   text-align: center;
+   line-height: 100px;
+   transition: all 1s ease-in 1s;
+  
+}
+.container:hover .ease-in {
+rotate: 360deg;
+background-color: green;
+margin-left: 900px;
+}
+
+/* ease-out */
+.container .ease-out {
+   color: white;
+   background-color: black;
+   width: 100px;
+   height: 100px;
+   text-align: center;
+   line-height: 100px;
+   transition: all 1s ease-out 1s;
+  
+}
+.container:hover .ease-out {
+rotate: 360deg;
+background-color: yellow;
+margin-left: 900px;
+}
+
+/* ease-in-out */
+.container .ease-in-out {
+   color: white;
+   background-color: black;
+   width: 100px;
+   height: 100px;
+   text-align: center;
+   line-height: 100px;
+   transition: all 1s ease-in-out 1s;
+  
+}
+.container:hover .ease-in-out {
+rotate: 360deg;
+background-color: orange;
+margin-left: 900px;
+}
+
+/* linear */
+.container .linear {
+   color: white;
+   background-color: black;
+   width: 100px;
+   height: 100px;
+   text-align: center;
+   line-height: 100px;
+   transition: all 1s linear 1s;
+  
+}
+.container:hover .linear {
+rotate: 360deg;
+background-color: magenta;
+margin-left: 900px;
+}
+
+/* cubic untuk mengisi parameter cubic buka browsesr, inspect elemen, pilih elemen, tentukan kurva cubicnya */
+.container .cubic {
+   color: white;
+   background-color: black;
+   width: 100px;
+   height: 100px;
+   text-align: center;
+   line-height: 100px;
+   transition: all 1s cubic-bezier(1,-0.64, 0, 1.02) 1s;
+  
+}
+.container:hover .cubic {
+rotate: 360deg;
+background-color: paleturquoise;
+margin-left: 900px;
+}
+
+
+

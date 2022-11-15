@@ -1,0 +1,39 @@
+<!-- TWOWAY DATA BINDING BERFUNGSI MENAMPILKAN DATA SECARA LIVE, APAPUN YG DIMASUKAN OLEH USER DATA TERSEBUT AKAN LANGSUNG TAMPIL DI HTMLNYA -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue js</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- componen vue di html:  -->
+	<div id="app">
+
+		<!-- {{cek}} menampilkan isi array cek -->
+		<h1>{{ cek }}</h1>
+
+		<!--  jika di cekliss data value dari ckeckbox akan masuk ke v-model, v-model akan memasukan datanya ke array cek -->
+		<label><input type="checkbox" v-model="cek" value="array">array</label>
+		<label><input type="checkbox" v-model="cek" value="object">object</label>
+		<label><input type="checkbox" v-model="cek" value="function">function</label>
+	
+	</div>
+
+<!-- cdn vue2 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+
+<!-- script untuk mengedit/membuat vue -->
+<script>
+
+const vm = new Vue({
+	el : `#app`,
+	data : {
+		cek : [],
+	},
+
+})
+
+</script>
+</html>

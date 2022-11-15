@@ -1,0 +1,19 @@
+/* panggil font yg sudah didaftar di html sesuai namanya */
+.radius2 {
+   font-size: 30px;
+   text-shadow: 5px 5px 5px red;
+   font-family: 'Indie Flower', cursive;
+}
+
+/* cara kedua dengan mendaftan sendiri font yang telah didwonload secara manual */
+/* buat nama font family sesuka hati, masukan url tempat penyimpannya fontnya */
+@font-face {
+   font-family: noto sans jp;
+   src: url(/font/NotoSansJP-Light.otf);
+}
+
+/* panggil font yang telah diregistrasikan */
+h1 {
+   font-size: 50px;
+   font-family: 'noto sans jp';
+}

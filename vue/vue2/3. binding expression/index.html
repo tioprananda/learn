@@ -1,0 +1,45 @@
+<!-- BINDING EXPRESSION SEPERTI TEMPLATE LITERAL , MEANMPILKAN ISI JAVASCRIPT LANGSUNG KEDALAM HTML -->
+<!-- isinya bisa string,integer,boolean,ternary,variabel,aritmatika, array, object, dll -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue js</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- componen vue di html:  -->
+	<div id="app">
+		<header>
+			<img src="" width="80">
+			<!-- v-once : mengunci isi binding agar tidak dapat diubah -->
+			<h1 v-once>{{ pesan }}</h1>
+			<h1 v-once>{{ nilai ? 'operator ternary success' : 'operator ternary failed' }}</h1>
+			<p>javascript framework</p>
+		</header>
+
+		<footer id="footer">
+			<p>copyright 2022</p>
+		</footer>
+
+	</div>
+
+<!-- cdn vue2 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+
+<!-- script untuk mengedit/membuat vue -->
+<script>
+
+const elemen = {
+	pesan : `binding expression`,
+	nilai : true,
+};
+const vm = new Vue({
+	el : `#app`,
+	data : elemen,
+});
+console.log(vm.$data.pesan);
+
+</script>
+</html>

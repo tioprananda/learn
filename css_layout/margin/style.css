@@ -1,0 +1,40 @@
+/* margin yaitu area transparan disekitar kotak (diluar border) */
+
+div {
+    display: inline-block;
+}
+.satu {
+    /* membuat jarak diluar kotak sesuai ukuran, margin left dan right masih berpengaruh, margin top dan bottom tidak berefek apabila ditambah dengan elemen lain */
+    background-color: red;
+    width: 300px;
+    height: 300px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+    margin-left: 100px
+}
+
+.dua {
+    /* membuat jarak minus atau berlawanan, negatif margin mengatasi vertical margin yang tidak dapat ditambah */
+    background-color: yellow;
+    width: 200px;
+    height: 200px;
+    margin-top: -200px;
+    margin-bottom: -200px;
+    margin-left: -200px;
+    margin-right: 50px;
+}
+
+.tiga {
+/* margin auto membuat jarak otomatis auto pas ditengah2 mengikuti elemen paren */
+background-color: green;
+width: 100px;
+height:100px;
+margin: auto;
+
+}
+/* padding yaitu area transparan disekitar kotak (didalam content dan border) */
+
+/* border yaitu batas disekeliling content dan padding */
+
+/* content yaitu isi sebenarnya didalam kotak bisa berupa teks,gambar,dll */

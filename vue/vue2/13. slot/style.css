@@ -1,0 +1,22 @@
+body {
+	margin : 5%;
+}
+
+#app {
+	
+}
+
+.home,.about,.product{
+	font-weight: 700;
+	color: black;
+	background-color: aquamarine; 
+	padding: 10px;
+	margin: 10px auto;
+	display: inline-block;
+	border: solid black 1px;
+}
+
+.home.active,.about.active,.product.active {
+	background-color: #345;
+	color: white;
+}

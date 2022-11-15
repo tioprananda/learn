@@ -1,0 +1,128 @@
+/* font : font-family: 'Raleway', sans-serif;
+ */
+
+body{
+    background-color:#abc;
+    font-size: 25px;
+    font-weight: 300;
+    font-family: 'Raleway', sans-serif;
+}
+
+ .container {
+    margin: 10% auto;
+   
+ }
+
+ .container h1 {
+    color: #eee;
+    font-size: 40px;
+    text-align: center;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,.5));
+    padding: 10px;
+}
+
+ .gambar {
+    margin: auto;
+    border: 3px solid #eee;
+    width: 63.0%;
+    border-radius: 10px;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,.5));
+    padding: 7px;   
+ }
+
+ .gambar li {
+   float: left;
+   position: relative;
+   margin: 7px;
+   box-sizing: border-box;
+   
+ }
+
+ .gambar img {
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,.5));
+    
+ }
+
+ .gambar span {
+   background-color: rgba(0,0,0,.4);
+   position: absolute;
+   right: 0;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   padding: 10px;
+   text-align: center;
+   line-height: 135px;
+   box-sizing: border-box;
+   color: white;
+   transform: scaleX(0);
+   font-weight:300;
+
+
+ }
+ 
+
+ a:hover span {
+    transform: scaleX(1);
+    transition: 0.3s;
+ }
+
+
+ /* GAMBAR  FULL */
+
+ .full {
+   position: fixed;
+   z-index: 9999;
+   background-color: rgba(0,0,0,.5);
+   top: 0;
+   right: 0;
+   opacity: 0;
+   margin: -9999px;
+}
+
+.full a{
+   position: absolute;
+   display: block;
+   width: 40px;
+   height: 40px;
+   background-color: rgba(0,0,0,.3);
+   border-radius: 50%;
+   font-size: 30px;
+   text-decoration: none;
+   text-align: center;
+   line-height: 40px;
+   font-weight: 600;
+   color: white;
+   border: 2px solid white;
+   right: 2%;
+   font-weight: 300;
+   top: 2%;
+   /* border-bottom-left-radius: 0; */
+}
+
+.full img {
+   display: block;
+   margin: 20px auto;
+   width: auto;
+   height: 95%;
+}
+
+
+
+.full:target {
+   transition: .6s;
+   left: 0;
+   bottom: 0;
+   opacity: 1;
+   margin: auto;
+}
+/* 
+
+} */
+
+
+
+ .clear {
+    clear: both;
+}
+ 

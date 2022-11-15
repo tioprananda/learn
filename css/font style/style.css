@@ -1,0 +1,19 @@
+h3 {
+    /* membuat jenis font, bisa lebih dari 1 value*/
+    font-family: 'Times New Roman', Times, serif;
+
+    /* membuat ukuran font (px, em, %) */
+    font-size: 100px;
+
+    /* membuat ketebalan font (normal, lighter, bold, border, 100-900) */
+    font-weight: bold;
+
+    /* membuat font menjadi kapital semua (normal, smallcaps) */
+    font-variant: small-caps;
+
+    /* membuat font menjadi miring (normal, italic, oblique) */
+    font-style: oblique;
+
+    /* mengatur jarak antar baris atau paragraf */
+    line-height: 50px;
+}

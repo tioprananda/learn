@@ -1,0 +1,46 @@
+/* Position (static, relative, absolute, fixed) berfungsi untuk menggerakan wadah/kotak elemen */
+/* menggerakan position menggunakan (top,right,left,bottom : px/%) */
+
+/* urutan kotak dari atas kebawah static,relative,absoulte,fixed */
+
+/* position static menggerakan kotak namun menggeser kotak yang lain */
+
+body {
+    height: 10000px;
+}
+.satu {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    position: static;
+}
+
+/* position relative maju 1 langkah dan meninggalkan jejak, menggerakan kotak tidak akan menggeser kotak yang lain */
+.dua     {
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 5px;
+    left: 10px;
+
+}
+
+/* position absolute maju 1 langkah keluar mengikuti elemen parentnya (elemen parent harus relative agar kotak tidak keluar dari sangkar) dan tidak meninggalkan jejak, menggerakan kotak namun kotak yang lain akan pindah menempati jejak yg kosong secara otomatis */
+.tiga {
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+/* position fixed maju 1 langkah keluar dari semua elemen html mengikuti elemen windows, apabila discroll kotak tidak akan berpindah */
+.empat{
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+    bottom: 0;
+    position: fixed;
+}

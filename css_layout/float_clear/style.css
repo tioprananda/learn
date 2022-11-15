@@ -1,0 +1,40 @@
+/* float adalah elemen cell yang berfungsi membuat div berurut menjadi balok2 rapi */
+/* float terdiri dari left, right dan none */
+/* jika memakai float left maka clearnya juga harus left  */
+
+.container {
+border: 3px solid black;
+margin: auto;
+padding: 5px;
+
+}
+.float1 {
+width: 50px;
+height: 50px;
+background-color: red;
+text-align: center;
+line-height: 50px;
+float: left;
+}
+
+.float2 {
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    }
+
+    .float3 {
+        width: 50px;
+        height: 50px;
+        background-color: green;
+        text-align: center;
+        line-height: 50px;
+        float: left;
+    }
+
+    .clear {
+        clear: left;
+    }

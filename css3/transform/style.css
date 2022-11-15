@@ -1,0 +1,24 @@
+/* transform berfungsi membuat transformasi pada elemen seperti bergerak, manipulasi ukuran, memutar dll */
+
+/* transform :
+
+   scale : angka (memperbesar/memperkecil)
+   rotate : deg (memutar)
+   skew : deg(membuat miring)
+   translate  : px(mengubah posisi)
+
+*/
+
+.radius {
+   background-image: url(img/tio.jpg);
+   width: 200px;
+   height: 200px;
+   background-size: cover;
+
+   transition: .8s;
+   
+}
+
+.radius:hover {
+   transform: rotate(30deg) scale(10) skewY(-10deg) translate(40px);
+}

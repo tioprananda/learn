@@ -1,0 +1,45 @@
+/* membuat efek apabila link diklik */
+
+.link:visited {
+color: green;
+}
+
+/* membuat efek apabila link dihover */
+
+.link:hover {
+    color: red;
+}
+
+/* membuat efek apabila tombol ditahan sebelum diklik */
+
+.link:active {
+    font-size: 100px;
+}
+
+/* memilih elemen child pertama dari elemen parent */
+
+li:first-child {
+    font-size: 50px;
+}
+
+/* memilih elemen child terakhir dari elemen parent */
+
+li:last-child {
+font-size: 75px;
+}
+
+/* memilih elemen child secara spesifik sesuai nomor urut parameter yg dimasukan (even atau genap /odd atau gabjil)*/
+
+li:nth-child(2) {
+    font-size: 100px;
+}
+
+/* memilih elemen tag pertama di lingkup semua html */
+
+a:first-of-type {
+    font-size: 40px;
+}
+
+a:last-of-type {
+    font-size: 60px;
+}

@@ -1,0 +1,44 @@
+<!-- V-TEXT BERFUNGSI MENAMPILKAN DATA DARI VUE KE HTML LANGSUNG BERUPA TULILSAN TEKS BIASA -->
+<!-- V-HTML BERFUNGSI MENAMPILKAN DATA DARI VUE KE HTML LANGSUNG YG DATANYA BISA MENNJALANKAN KODE2 HTML -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue js</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- componen vue di html:  -->
+	<div id="app">
+		
+		<H1>directive v-html :</H1>
+		<div v-html="inivhtml"></div>
+
+		<h1>directive v-text :</h1>
+		<div v-text="inivtext"></div>
+
+		<!-- directive jg bisa diisi dengan ekprsei -->
+		<h1>directive v-text with expression uppercase</h1>
+		<div v-text="inivtext.toUpperCase()"></div>
+
+	</div>
+
+<!-- cdn vue2 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+
+<!-- script untuk mengedit/membuat vue -->
+<script>
+
+const vm = new Vue({
+	el : `#app`,
+	data : {
+		inivhtml : `<button>inivhtml</button>`,
+		inivtext : `<h1> ini vtext <h1>`,
+	},
+
+})
+
+</script>
+</html>

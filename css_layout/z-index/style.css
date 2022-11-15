@@ -1,0 +1,67 @@
+/* z-index  berguna memberi no urut kotak/wadah untuk dimunculkan paling depan atau paling belakang */
+body {
+    height: 10000px;
+}
+
+/* nilai tertinggi dari z-index maka itulah yang akan dimunculkan paling depan */
+.satu {
+    background-color: red;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 1;
+}
+.dua {
+    background-color: yellow;
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 2;
+}
+
+.tiga {
+    background-color: green;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 3;
+}
+
+.empat {
+    background-color: blue;
+    top: 30px;
+    right: 30px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 4;
+}
+
+/* mengatur position top,right,bottom,left */
+.lima {
+    color: white;
+    text-align: center;
+    line-height: 400px;
+    background-color: black;
+    /* div top ditarik keatas */
+    top: 100px;
+
+    /* div bottom ditarik kebawah */
+    bottom: 100px;
+
+    /* div left ditarik kekiri */
+    left: 100px;
+
+    /* div right ditarik kekanan */
+    right: 100px;
+    opacity: 0.5;
+    border-radius: 50px;
+    position: fixed;
+    z-index: 5;
+}

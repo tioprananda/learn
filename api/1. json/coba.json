@@ -1,0 +1,12 @@
+// data untuk membuat json
+
+[{
+	"nama" : "apt",
+	"outlet" : 12,
+	"buka" : true,
+	"outlet lainnya" : ["ak12","ak13"],
+	"AA" : {
+		"AK1" : "NENENG",
+		"AK2" : "IRA"
+	}
+}]

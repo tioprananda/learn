@@ -1,0 +1,24 @@
+/* rgba (red,green,blue,alpha) digunakan untuk memberikan warna sekaligus memberikan efek transparan */
+/* hsla (hue,saturation,lightness,alpha) digunakan untuk membuat warna dan juga efek pencahayaan abstrak */
+
+
+/* rgba (warna, opacity) */
+.radius {
+    background-color: rgba(222, 123, 44, .4);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: relative;   
+}
+
+
+/* hsla (warna, saturasi %, terang %, opacity) */
+.radius2 {
+    background-color: hsla(221, 10%, 80%, .7);
+     width: 300px;
+     height: 300px;
+     line-height: 300px;
+     text-align: center;
+     border-radius: 0 50% 50% 50%;
+     
+ }

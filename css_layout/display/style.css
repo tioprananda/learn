@@ -1,0 +1,39 @@
+.header {
+    background-color: red;
+}
+
+div span {
+    background-color: blue;
+}
+
+/* DISPLAY */
+/* setiap tag html berbentuk kotak, display mengatur kotak tersebut */
+
+.inline a {
+    /* display inline tidak dapat mengatur panjang dan lebar elemen kecuali gambar yang ditambah kesamping */
+    display: inline;
+    background-color: aqua;
+}
+
+.inline-block a {
+    /* display inline-block dapat mengatur panjang dn lebar elemen yang ditambah kesamping*/
+    display: inline-block;
+    background-color: purple;
+    width: 50px;
+    height: 50px;
+    color: white;
+}
+
+.block a {
+    /* display block dapat mengatur panjang dan lebar elemen yang ditambah kebawah */
+
+    display: block;
+    background-color: black;
+    color: white;
+    
+}
+
+.block a:last-child {
+    /* display none menghilangkan elemen html dan css */
+    display: none;
+}

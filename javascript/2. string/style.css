@@ -1,0 +1,23 @@
+/*.kotak {
+	animation: putar .4s infinite linear;
+	margin: auto;
+	margin-top: 10%;
+
+
+}
+
+@keyframes putar {
+	0%{
+		background-color: magenta;
+		width: 200px;
+		height: 200px;
+			rotate:0deg;
+		
+	}50% {
+		background-color: aquamarine;
+
+	}100% {
+		background-color: purple;
+		rotate:90deg;
+	}
+}*/

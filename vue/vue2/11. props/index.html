@@ -1,0 +1,111 @@
+<!-- PROPS BERFUNGSI MENGAMBIL DATA DARI PARENT UNTUK DIKIRIM KE CHILDNYA YAITU VUE.COMPONENT, DATA YG INGIN DIAMBIL DARI PARENT WAJIB DI V-BIND NAMA PROPERTINYA, NAMA PROPERTI HARUS DIDAFTAKAN DI PROPS, LALU DIV DIDALAM PROPS HARUS MEMANGGIL DATA PROPS UNTUK MEMANGGIL DATA ASLI PARENTNYA -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue js</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- componen vue di html:  -->
+	<div id="app">
+
+		<!-- gambar adalah nama vue component -->
+		<!-- :tes adalah nama properti untuk props yg sudah di v-bind -->
+		<!-- karna properti resource tidak menggunakan data vm vue, maka tidak perlu di v-bind -->
+		<gambar :tes="cek" resource=img/2.jpg></gambar>
+
+		<!-- perulangan angka pada array angka -->
+		<looping :items="angka"></looping>
+
+		<!-- const home dari variabel luar -->
+		<Home></Home>	
+
+
+
+
+
+	</div>
+
+<!-- cdn vue2 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+
+<!-- script untuk mengedit/membuat vue -->
+<script>
+
+const Home = {
+	template : `<h1>HOME</h1>`
+};
+
+Vue.component (`gambar`,{
+	// daftarkan nama properti propsnya
+	props : [`resource`, `tes`],
+	template :
+
+	// karna resource di data parentnya tidak di v-bind, maka di childnya harus di v-bind agar bisa ketangkap
+	// tes adalah data vm yg bernama cek
+	// pesansucces adalah data child yg dibikin didalam vue component
+
+	 `
+		<div>
+			<img :src="resource" width="200">
+			<h1>{{tes + pesanSucces}}</h1>
+		</div>
+	`,
+
+	data : function(){
+		return 	{
+			pesanSucces : `, ambil data success`,
+		}
+	},
+	
+})
+
+Vue.component (`looping`,{
+	// daftarkan nama properti propsnya
+	props : [`items`],
+	template :
+
+	// untuk melakukan looping dari parent ke child wajib menggunakan syntak item of items
+
+	 `
+
+		<template>
+			<ul>
+				<li v-for="a in items">{{a}}</li>
+			</ul>
+		</template> 
+	`,
+
+	data : function(){
+		return 	{
+
+		}
+	},
+	
+})
+
+const vm = new Vue({
+	el : `#app`,
+	// komponen dari luar wajib didaftakan di elemen vm vue
+	components : {
+		// property pada component : const dari data variabel luar
+		'home' : Home,
+	},
+
+	data : {
+		cek : `props berhasil`,
+		angka : [`test1`,`test2`],
+	},
+
+	methods : {
+		inputAngka : function () {
+
+		}
+	},
+
+})
+
+</script>
+</html>

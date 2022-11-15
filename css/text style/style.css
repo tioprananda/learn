@@ -1,0 +1,22 @@
+h3 {
+    /* membuat warna (color, #fff, rgba */
+    color: #978656;
+
+    /* text align membuat rata posisi text (left/right/center/justify) */
+    text-align: center  ;
+
+    /* text-indent membuat indentasi atau jarak awal paragraf (px/%)*/
+    text-indent: 100px;
+
+    /* text-decoration berguna untuk membuat style tulisan yg dicoret (none/underline/overline/line-though) */
+    text-decoration: line-through;
+
+    /* text-transform berguna untuk membuat huruf kecil/besar semua */
+    text-transform: uppercase;
+
+    /* letter-spacing mengatur jarak antar huruf (px/%) */
+    letter-spacing: 100px;
+
+    /* word-spacing mengtur jarak antar kata (px/%) */
+    word-spacing: 100px;
+}

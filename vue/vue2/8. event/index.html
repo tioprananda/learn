@@ -1,0 +1,47 @@
+<!-- Event Handling berfungsi membuat event ketika mouse diklik/tombol ditekan maka akan menjalankan suatu function -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue js</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- componen vue di html:  -->
+	<div id="app">
+		<img :src="gambar" width="200">
+
+		<h1 v-text = 'angka'></h1>
+
+		<!-- ketika tombol diklik, maka jalankan fungsi berikut -->
+		<!-- v-on:click bisa disingkat jadi @:click -->
+		<button v-on:click = 'eventklik()'>tombol</button>
+	</div>
+
+<!-- cdn vue2 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+
+<!-- script untuk mengedit/membuat vue -->
+<script>
+
+const vm = new Vue({
+	el : `#app`,
+	data : {
+		angka : 1,
+		gambar : `img/1.jpg`,
+	},
+	methods : {
+
+		eventklik : function () {
+			// ketika eventklik dijalankan tambah properti angka 1 dst dan ubah property alamat gamar
+			this.angka++;
+			this.gambar = `img/${this.angka}.jpg`;
+			console.log(this.gambar)
+
+		},
+	},
+
+})
+
+</script>
+</html>

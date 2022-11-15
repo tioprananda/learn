@@ -1,0 +1,20 @@
+body {
+    /*membuat warna background  */
+    background-color: gold;
+
+    /* membuat background-image url(*alamat img) */
+    background-image: url(img/1.jpg);
+
+    /* background-repeat membuat gambar background berulang (repeat/reoeat-x/repeat-y/no-repeat) */
+    background-repeat: no-repeat;
+
+    /* background-position mengatur posisi background (top left/ top center/ top right/ center left/ center center/ center right/ bottom left/ bottom center/ x% y%/ x-pos y-pos);
+     */
+     background-position: center center;
+    
+}
+
+.gambar {
+
+    width: 50%;
+}

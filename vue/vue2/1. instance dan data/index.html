@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue js</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- componen vue di html:  -->
+	<div id="#app">
+		<header>
+			<img src="" width="80">
+			<h1>VUE JS</h1>
+			<p>javascript framework</p>
+		</header>
+
+		<footer id="footer">
+			<p>copyright 2022</p>
+		</footer>
+
+	</div>
+
+<!-- cdn vue2 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+
+<!-- script untuk mengedit/membuat vue -->
+<script>
+
+//<!-- component elemen harus diinisilisasikan terlebih dahulu sebelum vm, agar terbaca di vmnya -->
+const elemen = {
+	meesage : `alert`
+};
+
+// new vue() seperti object pada javascript yg memiliki property dan value,  digunakan untuk memanggil vue
+const vm = new Vue({
+	 // el adalah properti wajib untuk vue dan tidak boleh diganti dgn nama lain
+	 // #app adalah id html dgn nama app
+	el : `#app`,
+	data : elemen,
+});
+
+</script>
+</html>

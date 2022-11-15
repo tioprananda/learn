@@ -1,0 +1,80 @@
+/* flexbox berfungsi mengatur elemen seperti float, namun ukuran elemen akan diukur secara otomats dan elemen dapat di pindahkan ke atas dan ke bawah */
+/* display : flex */
+
+/* flex direction berfungsi mengatur arah elemen */
+/* flex-direction : row(kiri ke kanan) / row-reverse(kanan ke kiri) / column(atas ke kebawah) ? column-reverse (bawah keatas) */
+
+/* flex wrap berfungsi apabila elemen sudah tidak muat maka akan otomatis turun kebawah */
+/* flex-wrap : wrap(muat kebawah sesuai urutan) / wrap-reverse(muat kebawah kebalikan urutan) / nowrap(tidak memuat kebawah)  */
+
+/* justify content berfungsi mengatur jarak antar elemen seperti rata kiri/kanan/rata kiri kanan */
+/* justify-content : flex-start(rata kiri) / flex-end(rata kanan) / center (rata tengah) / space-between(rata tengah mepet kiri kanan) / space-around (rata tengah jarak dari tengah ke kiri dan kanan sama rata ) / space-evenly (semua elemen sama rata) */
+
+/* align items berfungsi mengatur kesejajaran antar item secara vertikal rata atas dan bawah */
+/* align-items : flex-start(rata kiri) / flex-end(rata kanan) / center (rata tengah) / strech(elemen memanjang kebawah apabila tidak dikasih height) / baseline (mengatur rata sesuai ukuran font dalam elemen) */
+
+/* align-content berfungsi mengatur jarak elemen apabila elemennya lebih dari 1 baris dan akan aktif apabila dikasih wrap */
+/* align-content : flex-start(konten rata kiri atas) / flex-end(konten rata kanan bawah) / center (konten rata tengah) / strech(konten rata kiri atas ukuran elemen memanjang kebawah) / space-between(rata kiri kanan dan atas bawahnya tidak sama rata) / space-around (rata kiri kanan atas bawah)*/
+
+/* order berfungsi menukar urutan elemen yang ingin ditampilkan */
+/* order : angka (no elemen yg ingin dipindahkan) */
+
+/* flex grow berfungsi memberikan ukuran elemen elemen yang tidak memiliki ukuran secara otomatis tapi flex tidak akan berfungsi jika elemen memiliki ukuran */
+/* flex : angka(semakin besar angka semakin berkali lipa ukuran elemennya) */
+
+/* align-self berfungsi mengatur 1 elemen saja, ke bawah atau ke atas */
+/* align-self: flex-start/ flex-end/ stretch */
+
+
+.container {
+    border: 3px solid greenyellow;
+    width: 1000px;
+    height: 200px;
+    margin: auto;
+    padding: 5px;
+    display: flex;
+    box-sizing: border-box;
+    /* flex-direction: column-reverse; */
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    /* align-items: stretch; */
+    /* align-content: space-between; */
+
+
+}
+
+.container .kotak1 {
+    background-color: grey;
+    padding: 5px;
+    order: 4;
+    flex: 1;
+    align-self: center;
+}
+
+.container .kotak2 {
+    background-color: red;
+    padding: 5px;
+    order: 2;
+    flex: 2;
+}
+
+.container .kotak3 {
+    background-color: blue;
+    padding: 5px;
+    order: 5;
+    flex:3;
+}
+
+.container .kotak4 {
+    background-color: yellow;
+    padding: 5px;
+    order: 1;
+    flex: 4;
+}
+
+.container .kotak5 {
+    background-color: pink;
+    padding: 5px;
+    order: 3;
+    flex:5;
+}

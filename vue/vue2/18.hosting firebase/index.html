@@ -1,0 +1,198 @@
+<!-- UPLOAD PROJECT WEB KE FIREBASE -->
+
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<head>
+	<title>CRUD</title>
+
+</head>
+
+
+<body>
+
+<div id='app'>
+
+	<crudinsert v-on:submitemit = "submitdata"></crudinsert>
+	<crud :items='outlet' v-on:hapusdataemit="hapusdata($event)"></crud>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+
+<!-- cdn uuidv4 -->
+<script type="module">
+  import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+  // TAMBAH SCRIPT BARU DENGAN NAMA FIREBASE DATABASE
+  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBMgPylYbdofZZiv_k6gGk26477TX_AtGI",
+    authDomain: "tutorial-vuejs-7d50d.firebaseapp.com",
+    projectId: "tutorial-vuejs-7d50d",
+    storageBucket: "tutorial-vuejs-7d50d.appspot.com",
+    messagingSenderId: "822669567890",
+    appId: "1:822669567890:web:497ed67324602de035834b",
+    measurementId: "G-L1SQKWR7VS"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  // PANGGIL KONEKSI DATABASE DAN SIMPAN KE CONST DB
+  const db = firebase.database();
+  // PANGGIL TABEL DATABASE SESUAI DGN NAMANYA YAITU OUTLE, REF adalah method untuk memanggil nama tabel di db
+  const outletRef = db.ref(`outlet`); 
+
+	Vue.component (`crud`,{
+		props : [`items`],
+		template : 
+		`
+			<ul v-if="items.length>0">
+					<li v-for="(item, index) of items"> {{index+1}} - outlet : {{item.nama}} 
+					<p>jumlah productivity : {{item.productivity}}</p>
+					<p><img :src=" 'img/' + item.gambar" width="200"></p>
+						<a href="#" v-on:click.prevent="$emit('hapusdataemit',item.id)">hapus</a>
+					</li>
+				</ul>
+			<li v-else> data tidak ditemukan </li>
+		`,
+	})
+		Vue.component (`crudinsert`,{
+		props : [],
+		template : 
+		`
+			<form v-on:submit.prevent="submitemit">
+				<label>nama : </label>
+				<input type="text" name="nama" v-model="dataoutletemit.nama">
+				<div class="error" v-if="error.nama">{{error.nama}}</div>
+				<br>
+				<label>productivity :</label>
+				<input type="text" name="productivity" v-model="dataoutletemit.productivity">
+				<div class="error" v-if="error.nama">{{error.productivity}}</div>
+				<br>
+				<label>upload :</label>
+				<img :src="previewimg" width="200" v-if="previewimg">
+				<input type="file" ref="gambar" name="upload" v-on:change="gantiimg">
+				<br>
+				<button type="submit">submit</button>
+			</form>
+		`,
+
+		data : function(){
+		return 	{
+			dataoutletemit : {
+					id : ``,
+					nama : ``,
+					productivity : ``,
+					gambar : ``,
+				},
+
+				previewimg :``,
+				error : {
+					nama : ``,
+					productivity : ``,
+				},
+				}
+		},
+
+		methods : {
+			submitemit : function(){
+				this.error.nama = ""
+				this.error.productivity = ""
+
+				if (this.dataoutletemit.nama == "") {
+					this.error.nama = `data belum diisi`
+				}
+
+				if (this.dataoutletemit.productivity == "") {
+					this.error.productivity = `data belum diisi`
+				}
+
+				if (this.dataoutletemit.nama && this.dataoutletemit.productivity) {
+
+							const dataisi = {
+								id : this.dataoutletemit.id = uuidv4(),
+								nama : this.dataoutletemit.nama,
+								productivity : this.dataoutletemit.productivity,
+								gambar : this.dataoutletemit.gambar,
+
+							}
+
+							this.$emit(`submitemit`,dataisi)
+							this.dataoutletemit.nama = ""
+							this.dataoutletemit.productivity = ""
+							this.dataoutletemit.gambar = ""
+							this.previewimg = ""
+							this.$refs.gambar.value = ""
+
+
+							}
+
+							console.log(this.dataoutletemit.id)
+
+	
+			},
+
+			gantiimg : function(e){
+				const img = e.target.files[0].name;
+				this.dataoutletemit.gambar = img;
+				this.previewimg = URL.createObjectURL(e.target.files[0])
+			}
+		}
+	})
+
+	const vm = new Vue ({
+		el : `#app`,
+		data : {
+			
+			outlet : [],
+		},
+		created(){
+			// this.outlet = JSON.parse(localStorage.getItem(`submitDataStorage`) || [])
+
+			// method.on berfungsi menampilkan data dari object data outlet
+			// method.on berisi tiga parameter (`value`, function callback ketika success, function callback ketika error)
+			outletRef.on(`value`, this.resultData, this.errorData)
+		},
+
+		methods : {
+
+			resultData: function(items){
+				console.log(items)
+			},
+
+			errorData: function(){
+
+			},
+
+			hapusdata : function(id) {
+			this.outlet = this.outlet.filter( x => x.id !== id )
+			localStorage.setItem(`submitDataStorage`, JSON.stringify(this.outlet))
+					swal({
+					  text: `data berhasil dihapus.`,
+					  icon: "warning",
+					})
+
+			},
+
+			submitdata : function(e){
+				this.outlet.push(e)
+
+				localStorage.setItem(`submitDataStorage`, JSON.stringify(this.outlet))
+
+					swal({
+					  title: `${e.nama} berhasil ditambahkan`,
+					  text: "data anda berhasil disimpan",
+					  icon: "success",
+					  button: "OK",
+					});
+			}
+		},
+	})
+</script>
+</body>
+</html>

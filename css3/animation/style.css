@@ -1,0 +1,55 @@
+/* animation berfungsi memberikan pergerakan full elemen menjadi animasi yg dinginkan */
+
+/* cara panggil animasi -
+   animation : name(nama animasi) duration(waktu durasi s/ms) timing-function(waktu timing m/ms) delay(waktu delay m/ms)
+   property [
+   iteration-count(perulangan animasi angka/infinite) direction(arah elemen normal/reverse/alternate/alternate reverse) fill-mode (animasi akhir transisi none/fordwards/backwards/both) play-state(animasi dijalankan/dipause running/pause)) ]
+
+   /* cara bikin animasi =
+   
+   @keyframe 0% {
+
+   }50%{
+
+   }100%{
+
+   };
+   */
+*/
+.container {
+   border: 5px solid black;
+   width: 1000px;
+   margin: auto;
+}
+
+/* ease */
+.container .ease {
+   margin: auto;
+   margin-top: 15%;
+   animation: animasiEase 1s linear infinite;
+
+}
+
+@keyframes animasiEase {
+
+   0% {
+      width: 200px;
+      height: 200px;
+      rotate: 0deg;
+      background-color: black;
+   } 50% {
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+      
+   } 100% {
+      width: 200px;
+      height: 200px;
+      background-color: magenta;
+      rotate: 360deg; 
+      
+   }
+   
+}
+
+

@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue js</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- componen vue di html:  -->
+	<div id="app">
+
+		<nav>
+			<router-link to="/">Home</router-link>
+    		<router-link to="/about">About</router-link>
+    		<router-link to="/looping">looping</router-link>
+		</nav>
+
+		<!-- <looping :items="angka" v-on:hapusemit="hapusangka($event)" v-on:tambahemit="tambahangka($event)"></looping> -->
+	</div>
+
+<!-- cdn vue2 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+<!-- cdn vue router -->
+<script src="https://unpkg.com/vue-router@4"></script>
+<script>
+
+
+const Home = { template: '<div>Home</div>' }
+const About = { template: '<div>About</div>' }
+const looping = {
+
+		props : [`items`],
+			template :
+			 `
+				<template>
+					<ul>
+						<label><input type="text" name="test" v-on:keyup.enter="$emit('tambahemit',$event)"> Enter</label>
+						<li v-for="(a, index) in items"> {{index+1}} - {{a}}
+							<a href=""v-on:click.prevent="$emit('hapusemit',index)">hapus</a>
+						</li>
+					</ul>
+				</template> 
+			`,
+
+			data : function(){
+				return 	{
+
+				}
+			},
+
+}
+
+
+Vue.component (`looping`,{
+		
+})
+
+const routes = [
+  { path: '/', component: Home },
+  { path: '/about', component: About },
+  { path: '/looping', component: looping },
+]
+
+// const router = new VueRouter({
+// 	routes
+// })
+
+
+
+const router = VueRouter.createRouter({
+  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+  history: VueRouter.createWebHashHistory(),
+  routes, // short for `routes: routes`
+})
+
+createApp(app).use(router).mount("#app");
+
+
+const vm = new Vue({
+	el : `#app`,
+	router,
+	components : {
+	},
+
+	data : {
+		cek : `props berhasil`,
+		angka : [`test1`,`test2`,`test3`,`test4`,`test5`,`test6`],
+	},
+
+	methods : {
+		hapusangka : function(index){
+			this.angka.splice(index, 1);
+		},
+		tambahangka : function(event){
+			let isi = event.target.value;
+			this.angka.unshift(isi);
+		}
+	},
+
+})
+
+</script>
+</html>

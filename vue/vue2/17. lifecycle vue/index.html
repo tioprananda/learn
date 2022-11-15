@@ -1,0 +1,69 @@
+<!-- LIFECYCLE VUE ADALAH SIKLUS EKSEKUSI DALAM VUE -->
+<html>
+<head>
+	<title>vue js</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- componen vue di html:  -->
+	<div id="app">
+
+		<h1>LIFECYCLE VUE</h1>
+
+	</div>
+
+<!-- cdn vue2 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+
+<!-- script untuk mengedit/membuat vue -->
+
+<script>
+
+
+const vm = new Vue({
+// NEW VUE SEBAGAI INISALISASI KERANGKA VUE TELAH DIBUAT
+
+	el : `#app`,
+
+	// before create dipanggil setelah halaman dibuka dan setelah new vue dieksekusi
+	beforeCreate(){
+		console.log(`beforeCreate`)
+	},
+
+	// creted dipanggil setelah halaman dibuka dan sebelum elemen html dirender
+	created(){
+		console.log(`created`)
+	},
+
+	// beforeMount dipanggil ketika template html sudah dirender
+	beforeMount(){
+		console.log(`beforeMount`)
+	},
+
+	// mounted dipanggil ketika template html sudah dirender dan sebelum eksekusi update
+	mounted(){
+		console.log(`mounted`)
+	},
+
+	// befoureUpdate dipanggil ketika program sebelum mengupdate ke elemen dom html
+	beforeUpdate(){
+		console.log(`beforeUpdate`)
+	},
+
+	// updated dipanggil ketika program berjalan setelah elemen dom html diupdate
+	updated(){
+		console.log(`updated`)
+	},
+
+	beforeDestroy(){
+		console.log(`beforeDestroy`)
+	},
+
+	destroyed(){
+		console.log(`destroyed`)
+	},
+})
+
+</script>
+</html>

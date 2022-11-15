@@ -1,0 +1,26 @@
+/* filter memberikan efek editing gambar seperti blur, hitamputih, shadow, dll */
+
+/* 
+
+filter : 
+   blur : px (memberikan efek blur)
+   brightness : angka/% (efek cahaya)
+   contrast : angka/% (efek warna kontras)
+   saturate : angka/% (efek saturasi)
+   graysclae : angka/% (efek hitamputih)
+   sepia :angka/% (efek kuning)
+   hue-rotate : deg (efek warna random)
+   invert : angka/% (kebalikan warna)
+   opacity : angka/% {transparan}
+   drop-shadow : x-offset y-offset blur color (bayangan)
+
+
+*/
+img {
+   filter: sepia(100%) blur(10px) drop-shadow(5px 5px 5px black);
+   transition: .7s;
+}
+
+img:hover {
+   filter: sepia(0) blur(0) drop-shadow(5px 5px 5px black);
+}

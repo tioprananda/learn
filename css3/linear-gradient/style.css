@@ -1,0 +1,25 @@
+/* linear gradient adalah value dari background-image yang memiliki campuran warna */
+/* background-image : linear gradient (to top/to left/ to right/ to bottom/ deg, color1, color2, dst) */
+
+
+.radius {
+    background-image: linear-gradient(45deg, purple,pink,aquamarine 80%);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: relative;   
+
+}
+
+/* radial gradien adalah value dari background image yang memiliki campuran warna namun berbentuk lingkaran */
+/* background-image : radial gradient (circle closest-side/farthest-corner, color1, color2, dst) */
+
+.radius2 {
+    background-image: radial-gradient(circle farthest-corner, purple, pink, aquamarine);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: absolute;   
+    top: 0;
+    right: 0;
+}

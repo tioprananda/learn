@@ -1,0 +1,28 @@
+
+/* padding yaitu area transparan disekitar kotak (didalam content dan border) */
+
+.satu {
+    display: block;
+    background-color: red;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    overflow: auto;
+
+    /* padding tidak memiliki nilai negatif dan auto */
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-left: 30px;
+    padding-bottom: 40px;
+
+    
+/* border yaitu batas disekeliling content dan padding */
+/* border : ukuran (px/%) style (solid, dotted, dashed, double) color */
+    border: 5px dotted yellow;
+
+}
+
+
+
+
+/* content yaitu isi sebenarnya didalam kotak bisa berupa teks,gambar,dll */
