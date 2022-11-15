@@ -1,2 +1,0 @@
-# learn
-hasil belajar
